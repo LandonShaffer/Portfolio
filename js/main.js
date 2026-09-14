@@ -251,8 +251,8 @@
 
     wrap.classList.add("has-canvas");
 
-    const brass = [224, 188, 116];
-    const sage = [141, 179, 135];
+    const brass = [62, 224, 197];
+    const sage = [255, 122, 89];
     const nodes = [
       { label: "Systems", rx: 0.5, ry: 0.2, color: brass },
       { label: "Networks", rx: 0.2, ry: 0.44, color: brass },
@@ -327,7 +327,7 @@
       edges.forEach(function (pair) {
         const a = nodes[pair[0]];
         const b = nodes[pair[1]];
-        ctx.strokeStyle = "rgba(224, 188, 116, 0.38)";
+        ctx.strokeStyle = "rgba(62, 224, 197, 0.42)";
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
@@ -343,7 +343,7 @@
           const b = nodes[pair[1]];
           const x = a.x + (b.x - a.x) * packet.t;
           const y = a.y + (b.y - a.y) * packet.t;
-          ctx.fillStyle = "rgba(244, 239, 228, 0.9)";
+          ctx.fillStyle = "rgba(238, 248, 255, 0.9)";
           ctx.beginPath();
           ctx.arc(x, y, 2.2, 0, Math.PI * 2);
           ctx.fill();
