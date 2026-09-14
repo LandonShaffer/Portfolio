@@ -8,13 +8,14 @@
       name="description"
       content="Portfolio of Landon Shaffer, Information Systems and Technology graduate from Laurel Ridge Community College."
     />
-    <meta name="theme-color" content="#0e0f0c" />
+    <meta name="theme-color" content="#0b0c0a" />
     <meta property="og:title" content="Landon Shaffer — Portfolio" />
     <meta
       property="og:description"
       content="Information Systems and Technology. Associate's degree, Laurel Ridge Community College."
     />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,19 +27,44 @@
     <noscript>
       <style>
         .reveal { opacity: 1; transform: none; }
+        .boot { display: none !important; }
+        body { overflow: auto; }
       </style>
     </noscript>
   </head>
-  <body>
+  <body class="is-booting">
+    <div class="boot" id="boot">
+      <div class="boot__inner">
+        <p class="boot__mark">LS</p>
+        <p class="boot__line" id="boot-line">Establishing session</p>
+        <div class="boot__bar" aria-hidden="true"><span></span></div>
+        <button class="boot__skip" id="boot-skip" type="button">Skip intro</button>
+      </div>
+    </div>
+
     <div class="atmosphere" aria-hidden="true">
       <span class="orb orb--a"></span>
       <span class="orb orb--b"></span>
+      <span class="orb orb--c"></span>
       <span class="grain"></span>
     </div>
     <div class="spotlight" aria-hidden="true"></div>
     <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+    <div class="cursor" aria-hidden="true">
+      <span class="cursor__ring"></span>
+      <span class="cursor__dot"></span>
+    </div>
 
     <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="rail" aria-label="Page sections">
+      <a href="#top" data-rail="top" aria-label="Intro"></a>
+      <a href="#about" data-rail="about" aria-label="About"></a>
+      <a href="#education" data-rail="education" aria-label="Education"></a>
+      <a href="#skills" data-rail="skills" aria-label="Skills"></a>
+      <a href="#work" data-rail="work" aria-label="Work"></a>
+      <a href="#contact" data-rail="contact" aria-label="Contact"></a>
+    </nav>
 
     <header class="site-header" id="top">
       <a class="mark" href="#top" aria-label="Landon Shaffer, home">
@@ -103,61 +129,53 @@
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#work">See the work</a>
-            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+            <a class="btn btn--primary magnetic" href="#work">See the work</a>
+            <a class="btn btn--ghost magnetic" href="#contact">Get in touch</a>
           </div>
         </div>
 
         <aside class="hero__stage" aria-hidden="true">
+          <div class="scan"></div>
           <div class="hud">
             <p><span>Host</span> landon.shaffer</p>
-            <p><span>Stack</span> IST / systems</p>
+            <p><span>Mesh</span> 5 nodes · 6 edges</p>
             <p><span>Link</span> github.com/LandonShaffer</p>
           </div>
-
-          <svg class="constellation" viewBox="0 0 420 420" fill="none">
-            <defs>
-              <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#d4b06a" stop-opacity="0.55" />
-                <stop offset="100%" stop-color="#d4b06a" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-            <g class="constellation__links" stroke="#d4b06a" stroke-opacity="0.45">
-              <path d="M210 78 L112 168" />
-              <path d="M210 78 L308 168" />
-              <path d="M112 168 L210 248" />
-              <path d="M308 168 L210 248" />
-              <path d="M112 168 L308 168" />
-              <path d="M210 248 L210 332" />
-            </g>
-            <g class="constellation__nodes">
-              <g transform="translate(210 78)">
-                <circle class="glow" r="22" fill="url(#nodeGlow)" />
-                <circle r="6" fill="#d4b06a" />
-                <text y="-18">Systems</text>
+          <div class="mesh">
+            <canvas id="mesh"></canvas>
+            <svg class="constellation mesh__fallback" viewBox="0 0 420 420" fill="none">
+              <g class="constellation__links" stroke="#d4b06a" stroke-opacity="0.45">
+                <path d="M210 78 L112 168" />
+                <path d="M210 78 L308 168" />
+                <path d="M112 168 L210 248" />
+                <path d="M308 168 L210 248" />
+                <path d="M112 168 L308 168" />
+                <path d="M210 248 L210 332" />
               </g>
-              <g transform="translate(112 168)">
-                <circle class="glow" r="22" fill="url(#nodeGlow)" />
-                <circle r="6" fill="#d4b06a" />
-                <text y="-18">Networks</text>
+              <g class="constellation__nodes">
+                <g transform="translate(210 78)">
+                  <circle r="6" fill="#d4b06a" />
+                  <text y="-18">Systems</text>
+                </g>
+                <g transform="translate(112 168)">
+                  <circle r="6" fill="#d4b06a" />
+                  <text y="-18">Networks</text>
+                </g>
+                <g transform="translate(308 168)">
+                  <circle r="6" fill="#d4b06a" />
+                  <text y="-18">Data</text>
+                </g>
+                <g transform="translate(210 248)">
+                  <circle r="6" fill="#d4b06a" />
+                  <text y="-18">Security</text>
+                </g>
+                <g transform="translate(210 332)">
+                  <circle r="6" fill="#86a07a" />
+                  <text y="28">Support</text>
+                </g>
               </g>
-              <g transform="translate(308 168)">
-                <circle class="glow" r="22" fill="url(#nodeGlow)" />
-                <circle r="6" fill="#d4b06a" />
-                <text y="-18">Data</text>
-              </g>
-              <g transform="translate(210 248)">
-                <circle class="glow" r="22" fill="url(#nodeGlow)" />
-                <circle r="6" fill="#d4b06a" />
-                <text y="-18">Security</text>
-              </g>
-              <g transform="translate(210 332)">
-                <circle class="glow" r="22" fill="url(#nodeGlow)" />
-                <circle r="6" fill="#86a07a" />
-                <text y="28">Support</text>
-              </g>
-            </g>
-          </svg>
+            </svg>
+          </div>
         </aside>
       </section>
 
@@ -185,10 +203,9 @@
               organizations actually run.
             </p>
             <p>
-              This site is a first pass you can click through — a place to collect
-              labs, projects, and whatever comes next. If something here is a
-              placeholder, that’s on purpose. I’d rather ship a real page than
-              wait for a perfect one.
+              This site is a live node — a place to collect labs, projects, and
+              whatever comes next. If something here is a placeholder, that’s on
+              purpose. I’d rather ship a real page than wait for a perfect one.
             </p>
           </div>
           <ul class="stat-list">
@@ -298,6 +315,13 @@
               little JavaScript — so it is easy to host, fork, and iterate.
             </p>
             <p class="work-card__stack">HTML · CSS · JavaScript · GitHub Pages</p>
+            <a
+              class="work-card__link"
+              href="https://landonshaffer.github.io/Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open live site</a
+            >
           </article>
 
           <article class="work-card tilt">
@@ -335,7 +359,7 @@
         </p>
 
         <a
-          class="btn btn--primary"
+          class="contact-link magnetic"
           href="https://github.com/LandonShaffer"
           target="_blank"
           rel="noopener noreferrer"
@@ -347,6 +371,10 @@
 
     <footer class="site-footer">
       <p>© <span id="year"></span> Landon Shaffer</p>
+      <p class="site-footer__meta">
+        <span id="scroll-readout">000%</span>
+        · built as a static system
+      </p>
       <p>
         <a href="https://github.com/LandonShaffer/Portfolio" target="_blank" rel="noopener noreferrer"
           >Source on GitHub</a
