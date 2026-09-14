@@ -9,21 +9,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Outfit:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div class="atmosphere" aria-hidden="true">
+      <span class="orb orb--a"></span>
+      <span class="orb orb--b"></span>
+      <span class="grain"></span>
+    </div>
     <main class="hero" id="main">
-      <p class="kicker"><span class="kicker__index">404 / Missing</span></p>
-      <h1 class="hero__title">
-        <span>Lost the</span>
-        <span>packet.</span>
-      </h1>
-      <p class="hero__lede">That URL isn’t on this site. Head back to the portfolio.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="index.html">Back home</a>
+      <div class="hero__copy">
+        <p class="kicker"><span class="kicker__index">404 / Missing</span></p>
+        <h1 class="hero__title">
+          <span class="hero__line"><span>Lost the</span></span>
+          <span class="hero__line"><span>packet.</span></span>
+        </h1>
+        <p class="hero__lede">That URL isn’t on this site. Head back to the portfolio.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="index.html">Back home</a>
+        </div>
       </div>
     </main>
   </body>
